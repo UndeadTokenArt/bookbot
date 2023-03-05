@@ -1,3 +1,4 @@
+
 def get_num_of_char(path):
     with open(path) as f:
         text = f.read().lower()
@@ -20,15 +21,21 @@ def get_word_count(path):
         wordcount = len(text.split())
         return (str(wordcount))
     
+def report():
+    letter_data = get_num_of_char("books/frankenstein.txt")
+    word_data = get_word_count("books/frankenstein.txt")
+    l = []
+    for i in letter_data:
+        l.append(i)
+    sorted_list = l.sort()
 
-letter_data = get_num_of_char("books/frankenstein.txt")
-word_data = get_word_count("books/frankenstein.txt")
 
+    print("---------- Start of report ----------")
+    print(f"There are {word_data} words in the text provided")
 
-print("---------- Start of report ----------")
-print(word_data)
+    for i in l:
+        print(f"The '{i}' character was found {letter_data[i]} times.")
 
-for i in letter_data:
-    print(f"The '{i}' character was found {letter_data[i]} times.")
+    print("--------- End of report ----------")
 
-print("--------- End of report ----------")
+report()
